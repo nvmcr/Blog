@@ -69,7 +69,7 @@ Say we have a dataset with `Age` and `Salary` columns. Range of age is usually 0
 
 Standardization transforms data to have a mean of zero and a standard deviation of one. It preserves the shape of the distribution of the original data, but it changes the scale and location of the data. So it is used when we know the underlying distribution and highly preferred over normalization as it is robust to outliers. Preferred where gradient descent is used for convergence.
 
-Normalization is used to rescale data to a range of 0 to 1 or -1 to 1. Normalization is often used when the absolute values of the data are less important and we dont know the underlying distributions.
+Normalization is used to rescale data to a range of 0 to 1 or -1 to 1. Normalization is often used when the absolute values of the data are less important and we dont know the underlying distributions. Also used when distance affects the algorithm like Kmeans.
 
 $$ x' = ({2*(x - min)\\over (max - min)}) - 1 $$
 
