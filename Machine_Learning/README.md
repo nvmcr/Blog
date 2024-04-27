@@ -183,11 +183,11 @@ Used for classification tasks. In a confusion matrix, `True Positives` are the *
 ### Accuracy
 It is calculated as the number of true positives and true negatives divided by the total number of instances in the dataset. In most of the cases, the distribution of classes is imbalanced, meaning that some classes have far fewer instances than others. In such cases, a classifier that always predicts the majority class will have a high accuracy, even though it is not very useful. So just accuracy is not good enough estimate.
 ### Precision, Recall and F1 Score
-Precision says From total predicted positives, how many are actual postives. $Precision = \frac{True Positives}{True Positives + False Positives}$. Precision means percentage of the results that are relavant.
+Precision says From total predicted positives, how many are actual positives. $Precision = \frac{True Positives}{True Positives + False Positives}$. Precision means percentage of the results that are relavant.
 
 Recall says From total positives how many are actual positives. $Recall = \frac{True Positives}{True Positives + False Negatives}$. Recall means the percentage of total relevant results that are correctly classified.
 
-Lets consider we are doing a medical test. Diagnoizing a disease is high priority. We have to take care of positive tests marked as negative (False Negative). We can for an extent misdiagnoize a negative test as positive (False Positive). Here Recall is preferred over Precision.
+Lets consider we are doing a medical test. Diagnoizing a disease is a high priority. We have to take care of positive tests marked as negative (False Negative). We can for an extent misdiagnose a negative test as positive (False Positive). Here Recall is preferred over Precision.
 
 Say we are doing email spam detection. We can not mark a normal mail as spam (False Positive) but we can for an extent mark a spam mail as normal(False Negative). Here Precision is preferred over recall.
 
@@ -313,7 +313,7 @@ Similar to linear regression except the target is categorical instead of contino
 
 ![](Images/logreg.png)
 
-The predicted values should stay within the range of 0 and 1 and we need something like a S function to classify the samples. This function make a sample close to 1 or 0 if it is sure (high probability). Generally sigmoid function is used in this case. As we know in linear case y = wx+b, instead of directly using y, we first map it within range of 0,1 by using $\sigma (y) = \frac{1}{1+e^{-wx+b}}$ We also have a threshold value, usually 0.5, to map values between 0 to 1. For example, if we need have a value of 0.7 as the output of sigmoid function, then we make that prediction as 1 as 0.7 $\ge$ 0.5. Similarly if it is 0.3, then the prediction is 0.
+The predicted values should stay within the range of 0 and 1 and we need something like a S function to classify the samples. This function make a sample close to 1 or 0 if it is sure (high probability). Generally sigmoid function is used in this case. As we know in linear case y = wx+b, instead of directly using y, we first map it within range of 0,1 by using $\sigma (y) = \frac{1}{1+e^{-z}}$ where z is the log odds of y. We also have a threshold value, usually 0.5, to map values between 0 to 1. For example, if we need have a value of 0.7 as the output of sigmoid function, then we make that prediction as 1 as 0.7 $\ge$ 0.5. Similarly if it is 0.3, then the prediction is 0.
 
 To better fit (optimize) the sigmoid, we need a loss function. We cant use the L2 loss as it will become non convex for logistic. So we use something called logistic loss or binary categorical cross entropy. 
 
